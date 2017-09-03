@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent (typeof(PlayerControl))]
-public class Player : MonoBehaviour {
+public class Player : LivingEntity {
 
     public float moveSpeed = 5f;
 
@@ -11,7 +11,8 @@ public class Player : MonoBehaviour {
     PlayerControl controller;
     GunController gunController;
 
-	void Start () {
+	protected override void Start () {
+        base.Start();
         controller = GetComponent<PlayerControl>();
         gunController = GetComponent<GunController>();
         viewCamera = Camera.main;
